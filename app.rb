@@ -8,8 +8,7 @@ def init_db
 	@db = SQLite3::Database.new 'vlogus.db'
 	@db.results_as_hash = true
 end
-
-
+ 
 before do 
 	init_db
 end
@@ -39,5 +38,8 @@ post '/new' do
 		@error = "Введите текст"
 		return erb :new
 	end	
+
+	@db.execute 'insert into Posts (content, created_date) values (? , datetime())' , [content]
+
 	erb "Вы ввели #{content}"
 end 
