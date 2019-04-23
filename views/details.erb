@@ -3,5 +3,11 @@
 <%= @row['content'] %>
     <br />
         добавлен в: <%= @row['created_date']%>
-   
-</p>
+   </p> 
+
+  <h4>Коменты: </h4>
+  <form action="/details/<%= @row['id']%>" method="POST" >
+  <textarea name="content" class="form-control" rows="6" placeholder="введите комментарий... "></textarea>
+  <br>
+  <button type="submit" class="btn btn-primary ">Add comment</button>
+</form> 
