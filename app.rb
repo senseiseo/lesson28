@@ -79,4 +79,6 @@ post '/details/:post_id' do
 	)' , 
 	[content, post_id]
 
+	redirect to('/details/' + post_id)
+
 end 
