@@ -72,4 +72,11 @@ post '/details/:post_id' do
 	
 	content = params[:content]
 
+	@db.execute 'insert into Coments 
+	(content, created_date, post_id) 
+		values 
+	(? , datetime(),?
+	)' , 
+	[content, post_id]
+
 end 
